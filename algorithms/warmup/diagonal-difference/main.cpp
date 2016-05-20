@@ -3,6 +3,12 @@
 #include <iostream>
 #include <vector>
 
+#define TEST
+
+#ifdef TEST
+#include "catch.hpp"
+#endif
+
 using namespace std;
 
 int main() {
