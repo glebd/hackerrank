@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
+#include <iomanip>
 
 #define TEST
 
@@ -10,7 +12,14 @@
 using namespace std;
 
 vector<string> staircase(int n) {
-  return {""};
+  vector<string> result;
+  for (size_t i = 1; i <= n; ++i) {
+    ostringstream os;
+    string hashes(i, '#');
+    os << setw(n) << hashes;
+    result.push_back(os.str());
+  }
+  return result;
 }
 
 #ifdef TEST
