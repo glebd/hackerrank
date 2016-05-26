@@ -21,6 +21,7 @@ bool is_palindrome(const string& s) {
 
 #else
 
+// Run time complexity: O(n)
 bool is_palindrome(const string& s) {
   if (s.length() < 2) return true;
   for (size_t ofs = 0; ofs < s.length() / 2; ++ofs) {
