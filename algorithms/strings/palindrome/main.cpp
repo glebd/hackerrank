@@ -6,6 +6,10 @@
 
 using namespace std;
 
+//#define RECURSIVE
+
+#ifdef RECURSIVE
+
 // Run time complexity: O(n)
 // Stack space complexity: O(log n)
 bool is_palindrome(const string& s) {
@@ -14,6 +18,18 @@ bool is_palindrome(const string& s) {
   auto mid = s.substr(1, s.length() - 2);
   return is_palindrome(mid);
 }
+
+#else
+
+bool is_palindrome(const string& s) {
+  if (s.length() < 2) return true;
+  for (size_t ofs = 0; ofs < s.length() / 2; ++ofs) {
+    if (s[ofs] != s[s.length() - ofs - 1]) return false;
+  }
+  return true;
+}
+
+#endif
 
 TEST_CASE("a") {
   CHECK(is_palindrome("a"));
