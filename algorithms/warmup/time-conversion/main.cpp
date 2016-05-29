@@ -8,12 +8,18 @@
 
 using namespace std;
 
+string miltime(string time) {
+  return time;
+}
+
 #ifdef TEST
 
 #else
 
 int main() {
-  cout << "Hello, World!" << endl;
+  string time;
+  cin >> time;
+  cout << miltime(time) << endl;
   return 0;
 }
 
