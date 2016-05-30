@@ -22,7 +22,13 @@ string miltime(string time) {
   string s = time.substr(6, 2);
   string a = time.substr(8, 1);
   int hour = atoi(h.c_str());
-  if (a == "P") hour += 12;
+  if (a == "P") {
+    if (hour != 12)
+      hour += 12;
+  } else {
+    if (hour == 12)
+      hour = 0;
+  }
   ostringstream os;
   os.fill('0');
   os << setw(2) << hour << ":" << m << ":" << s;
@@ -37,6 +43,14 @@ TEST_CASE("AM") {
 
 TEST_CASE("PM") {
   CHECK(miltime("07:05:45PM") == "19:05:45");
+}
+
+TEST_CASE("Midnight") {
+  CHECK(miltime("12:00:00AM") == "00:00:00");
+}
+
+TEST_CASE("Noon") {
+  CHECK(miltime("12:00:00PM") == "12:00:00");
 }
 
 #else
