@@ -82,3 +82,8 @@ int main()
   return 0;
 }
 #endif
+
+TEST_CASE("1")
+{
+    CHECK(miniMaxSumImpl({1, 2, 3, 4, 5}) == "10 14");
+}
