@@ -46,7 +46,22 @@ vector<string> split(const string &str)
 
 auto miniMaxSumImpl(vector<int> arr) -> string
 {
-    return {};
+    vector<long> sums;
+
+    for (size_t removed_index = 0; removed_index < arr.size(); ++removed_index)
+    {
+        long sum = 0;
+        for (size_t i = 0; i < arr.size(); ++i)
+        {
+            if (i != removed_index)
+                sum += arr[i];
+        }
+        sums.push_back(sum);
+    }
+    sort(begin(sums), end(sums));
+    ostringstream os;
+    os << sums.front() << " " << sums.back();
+    return os.str();
 }
 
 /*
