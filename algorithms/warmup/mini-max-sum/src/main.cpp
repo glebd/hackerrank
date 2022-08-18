@@ -42,7 +42,11 @@ vector<string> split(const string &str)
     tokens.push_back(str.substr(start));
 
     return tokens;
+}
 
+auto miniMaxSumImpl(vector<int> arr) -> string
+{
+    return {};
 }
 
 /*
@@ -53,6 +57,7 @@ vector<string> split(const string &str)
 
 void miniMaxSum(vector<int> arr)
 {
+    cout << miniMaxSumImpl(arr);
 }
 
 #if 0
