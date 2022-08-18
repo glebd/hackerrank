@@ -6,6 +6,9 @@ target("mini-max-sum")
     add_files("src/*.cpp")
     add_packages("doctest")
     set_languages("c99", "c++14")
+    if is_plat("linux", "macosx") then
+        add_cxxflags("-Wno-deprecated-declarations")
+    end
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
